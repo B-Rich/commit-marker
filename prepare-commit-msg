@@ -3,8 +3,9 @@
 
 """ Git hook to insert a commit message marker.
 
-This hook is specific to the Psignifit-3.x project. It will insert an appropriate
-commit message marker, e.g. [C++/NF] into the first line of the commit message.
+This hook is specific to the Psignifit-3.x project. It will insert an
+appropriate commit message marker, e.g. [C++/NF] into the first line of the
+commit message.
 
 Author:  Valentin Haenel <valentin.haenel@gmx.de>
 Licence: WTFPL http://en.wikipedia.org/wiki/WTFPL
