@@ -3,7 +3,7 @@
 
 """ Git hook to insert a commit message marker.
 
-This hook is specific to the Psignifit-3.x project. It will insert an approprite
+This hook is specific to the Psignifit-3.x project. It will insert an appropriate
 commit message marker, e.g. [C++/NF] into the first line of the commit message.
 
 Author:  Valentin Haenel <valentin.haenel@gmx.de>
@@ -15,7 +15,7 @@ $ cd ${project}
 $ ln -s ${path-to}/commit-prefix/prepare-commit-msg .git/hooks
 
 When committing, the script will interactively ask you for input using the
-prompt '?:'. You may then input one or more numbers, seperated by space. The
+prompt '?:'. You may then input one or more numbers, separated by space. The
 script will parse you input and construct the desired commit marker.
 
 For example:
@@ -43,8 +43,8 @@ $ git log -1 --pretty="format:%s"
 Although the example works with the '-m' flag for simplicity, the script also
 works when 'git commit' opens the editor of you choice. In this case the commit
 marker will already have been inserted and you must only write the message. This
-also gives you the chance to ammend or modify the marker to you liking.  If you
-don't enter a number, the scirpt will simply insert the empty string.
+also gives you the chance to amend or modify the marker to you liking.  If you
+don't enter a number, the script will simply insert the empty string.
 
 """
 
