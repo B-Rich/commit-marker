@@ -1,13 +1,50 @@
 #!/usr/bin/env python
 # vim: set syntax=python:
 
-""" Git hook to insert a commit message marker
+""" Git hook to insert a commit message marker.
 
 This hook is specific to the Psignifit-3.x project. It will insert an approprite
 commit message marker, e.g. [C++/NF] into the first line of the commit message.
 
 Author:  Valentin Haenel <valentin.haenel@gmx.de>
 Licence: WTFPL http://en.wikipedia.org/wiki/WTFPL
+
+Usage: symlink the file to a .git/hooks directory
+$ git clone git://github.com/esc/commit-prefix
+$ cd ${project}
+$ ln -s ${path-to}/commit-prefix/prepare-commit-msg .git/hooks
+
+When committing, the script will interactively ask you for input using the
+prompt '?:'. You may then input one or more numbers, seperated by space. The
+script will parse you input and construct the desired commit marker.
+
+For example:
+
+$ git co -b testing
+$ git commit -m "commit message"
+Where did you make your change?
+1: C++   -- C++ code base
+2: swig  -- swig interface
+3: py    -- Python code
+4: R     -- R code
+5: build -- Build system
+?:3
+What kind of modification did you make?
+1: NF  -- new feature
+2: BF  -- bug fix
+3: RF  -- refactor
+4: FO  -- formatting
+5: DOC -- documentation
+?:3 4
+[testing da33f2f] [py/RF/FO] commit message
+$ git log -1 --pretty="format:%s"
+[py/RF/FO] commit message
+
+Although the example works with the '-m' flag for simplicity, the script also
+works when 'git commit' opens the editor of you choice. In this case the commit
+marker will already have been inserted and you must only write the message. This
+also gives you the chance to ammend or modify the marker to you liking.  If you
+don't enter a number, the scirpt will simply insert the empty string.
 
 """
 
