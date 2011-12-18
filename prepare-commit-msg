@@ -57,7 +57,7 @@ mod_type = {'1':('NF ', 'new feature'),
             '3':('RF ', 'refactor'),
             '4':('FO ', 'formatting'),
             '5':('UT ', 'unit test'),
-            '5':('DOC', 'documentation'),
+            '6':('DOC', 'documentation'),
            }
 
 area_type = {'1':('C++  ', 'C++ code base'),
