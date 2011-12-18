@@ -51,7 +51,6 @@ don't enter a number, the script will simply insert the empty string.
 
 import sys
 
-output_list = ['[']
 
 mod_type = {'1':('NF ', 'new feature'),
             '2':('BF ', 'bug fix'),
@@ -87,6 +86,7 @@ def print_and_read_selection(option_dict):
         return '/'.join(descriptors)
 
 def get_marker_from_user():
+    output_list = ['[']
     print 'Where did you make your change?'
     output_list.append(print_and_read_selection(area_type))
     print 'What kind of modification did you make?'
