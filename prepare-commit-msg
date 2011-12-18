@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+# vim: set syntax=python:
+
+""" Git hook to insert a commit message marker
+
+This hook is specific to the Psignifit-3.x project. It will insert an approprite
+commit message marker, e.g. [C++/NF] into the first line of the commit message.
+
+Author:  Valentin Haenel <valentin.haenel@gmx.de>
+Licence: WTFPL http://en.wikipedia.org/wiki/WTFPL
+
+"""
+
+import sys
+
+output_list = ['[']
+
+mod_type = {'1':('NF ', 'new feature'),
+            '2':('BF ', 'bug fix'),
+            '3':('RF ', 'refactor'),
+            '4':('FO ', 'formatting'),
+            '5':('UT ', 'unit test'),
+            '5':('DOC', 'documentation'),
+           }
+
+area_type = {'1':('C++  ', 'C++ code base'),
+             '2':('swig ', 'swig interface'),
+             '3':('py   ', 'Python code'),
+             '4':('R    ', 'R code'),
+             '5':('build', 'Build system'),
+            }
+
+def print_and_read_selection(option_dict):
+    for k,v in sorted(option_dict.items()):
+        print '%s: %s -- %s' % (k, v[0], v[1])
+    # needed to run raw_input in git-hook
+    sys.stdin = open('/dev/tty')
+    input = raw_input('?:')
+    if not input:
+        return ''
+    tokenized_input = input.split(' ')
+    try:
+        descriptors = [option_dict[i][0].rstrip()
+                for i in tokenized_input]
+    except KeyError:
+        print 'Fatal: number %s is invalid' % i
+        sys.exit(1)
+    else:
+        return '/'.join(descriptors)
+
+def get_marker_from_user():
+    print 'Where did you make your change?'
+    output_list.append(print_and_read_selection(area_type))
+    print 'What kind of modification did you make?'
+    output_list.append('/')
+    output_list.append(print_and_read_selection(mod_type))
+    output_list.append('] ')
+    return ''.join(output_list)
+
+def prepend_to_file(marker):
+    with open(sys.argv[1], 'r') as message_file:
+        lines = message_file.readlines()
+        lines[0] = marker + lines[0]
+    with open(sys.argv[1], 'w') as message_file:
+        message_file.write(''.join(lines))
+
+if __name__ == '__main__':
+    prepend_to_file(get_marker_from_user())
