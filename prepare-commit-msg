@@ -68,7 +68,7 @@ area_type = {'1':('C++  ', 'C++ code base'),
             }
 
 def print_and_read_selection(option_dict):
-    for k,v in sorted(option_dict.items()):
+    for k, v in sorted(option_dict.items()):
         print '%s: %s -- %s' % (k, v[0], v[1])
     # needed to run raw_input in git-hook
     sys.stdin = open('/dev/tty')
