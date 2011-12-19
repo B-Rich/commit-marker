@@ -59,7 +59,8 @@ mod_type = [('NF ', 'new feature'),
             ('DOC', 'documentation'),
            ]
 
-mod_type = dict( (str(i+1), k) for i,k in enumerate(mod_type))
+mod_type = dict( (str(index+1), option)
+        for index, option in enumerate(mod_type))
 
 area_type = [('C++  ', 'C++ code base'),
              ('swig ', 'swig interface'),
@@ -68,7 +69,8 @@ area_type = [('C++  ', 'C++ code base'),
              ('build', 'Build system'),
             ]
 
-area_type = dict( (str(i+1), k) for i,k in enumerate(area_type))
+area_type = dict( (str(index+1), option)
+        for index, option in enumerate(area_type))
 
 def print_and_read_selection(option_dict):
     for key, val in sorted(option_dict.items()):
