@@ -52,20 +52,24 @@ don't enter a number, the script will simply insert the empty string.
 import sys
 
 
-mod_type = {'1':('NF ', 'new feature'),
-            '2':('BF ', 'bug fix'),
-            '3':('RF ', 'refactor'),
-            '4':('FO ', 'formatting'),
-            '5':('UT ', 'unit test'),
-            '6':('DOC', 'documentation'),
-           }
+mod_type = [('NF ', 'new feature'),
+            ('BF ', 'bug fix'),
+            ('RF ', 'refactor'),
+            ('FO ', 'formatting'),
+            ('UT ', 'unit test'),
+            ('DOC', 'documentation'),
+           ]
 
-area_type = {'1':('C++  ', 'C++ code base'),
-             '2':('swig ', 'swig interface'),
-             '3':('py   ', 'Python code'),
-             '4':('R    ', 'R code'),
-             '5':('build', 'Build system'),
-            }
+mod_type = dict( (str(i+1), k) for i,k in enumerate(mod_type))
+
+area_type = [('C++  ', 'C++ code base'),
+             ('swig ', 'swig interface'),
+             ('py   ', 'Python code'),
+             ('R    ', 'R code'),
+             ('build', 'Build system'),
+            ]
+
+area_type = dict( (str(i+1), k) for i,k in enumerate(area_type))
 
 def print_and_read_selection(option_dict):
     for key, val in sorted(option_dict.items()):
