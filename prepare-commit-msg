@@ -51,7 +51,6 @@ don't enter a number, the script will simply insert the empty string.
 
 import sys
 
-
 mod_type = [('NF ', 'new feature'),
             ('BF ', 'bug fix'),
             ('RF ', 'refactor'),
