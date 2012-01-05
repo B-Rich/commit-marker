@@ -56,7 +56,6 @@ mod_type = [('NF ', 'new feature'),
             ('RF ', 'refactor'),
             ('FO ', 'formatting'),
             ('UT ', 'unit test'),
-            ('DOC', 'documentation'),
            ]
 
 mod_type = dict( (str(index+1), option)
@@ -67,6 +66,7 @@ area_type = [('C++  ', 'C++ code base'),
              ('py   ', 'Python code'),
              ('R    ', 'R code'),
              ('build', 'Build system'),
+             ('docs',  'Documentation')
             ]
 
 area_type = dict( (str(index+1), option)
