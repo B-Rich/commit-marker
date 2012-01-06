@@ -82,7 +82,11 @@ def print_and_read_selection(option_dict):
         print '%s: %s -- %s' % (key, val[0], val[1])
     # needed to run raw_input in git-hook
     sys.stdin = open('/dev/tty')
-    user_input = raw_input('?:')
+    try:
+        user_input = raw_input('?:')
+    except KeyboardInterrupt:
+        print "Canceled by user!"
+        sys.exit(1)
     if not user_input:
         return ''
     tokenized_input = user_input.split(' ')
