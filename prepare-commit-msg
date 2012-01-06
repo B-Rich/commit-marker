@@ -47,6 +47,11 @@ marker will already have been inserted and you must only write the message. This
 also gives you the chance to amend or modify the marker to you liking.  If you
 don't enter a number, the script will simply insert the empty string.
 
+If you wish to abort the commit when you have reached the editor, you have to
+delete the commit message marker and save an empty commit message. Vim users
+could use ':cq' to exit with a non-zero status, which will also abort the
+commit.
+
 """
 
 import sys
