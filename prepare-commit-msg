@@ -24,11 +24,13 @@ For example:
 $ git co -b testing
 $ git commit -m "commit message"
 Where did you make your change?
-1: C++   -- C++ code base
-2: swig  -- swig interface
-3: py    -- Python code
-4: R     -- R code
-5: build -- Build system
+1: C++    -- C++ code base
+2: swig   -- swig interface
+3: py     -- Python code
+4: R      -- R code
+5: matlab -- matlab code
+6: build  -- Build system
+7: docs   -- Documentation
 ?:3
 What kind of modification did you make?
 1: NF  -- new feature
@@ -66,12 +68,13 @@ mod_type = [('NF ', 'new feature'),
 mod_type = dict( (str(index+1), option)
         for index, option in enumerate(mod_type))
 
-area_type = [('C++  ', 'C++ code base'),
-             ('swig ', 'swig interface'),
-             ('py   ', 'Python code'),
-             ('R    ', 'R code'),
-             ('build', 'Build system'),
-             ('docs',  'Documentation')
+area_type = [('C++   ', 'C++ code base'),
+             ('swig  ', 'swig interface'),
+             ('py    ', 'Python code'),
+             ('R     ', 'R code'),
+             ('matlab', 'matlab code'),
+             ('build ', 'Build system'),
+             ('docs  ',  'Documentation')
             ]
 
 area_type = dict( (str(index+1), option)
