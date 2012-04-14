@@ -31,6 +31,7 @@ Where did you make your change?
 5: matlab -- matlab code
 6: build  -- Build system
 7: docs   -- Documentation
+8: debian -- Debian directory
 ?:3
 What kind of modification did you make?
 1: NF  -- new feature
@@ -74,7 +75,8 @@ area_type = [('C++   ', 'C++ code base'),
              ('R     ', 'R code'),
              ('matlab', 'matlab code'),
              ('build ', 'Build system'),
-             ('docs  ',  'Documentation')
+             ('docs  ',  'Documentation'),
+             ('debian  ',  'Debian directory'),
             ]
 
 area_type = dict( (str(index+1), option)
