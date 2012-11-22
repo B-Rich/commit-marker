@@ -122,4 +122,9 @@ def prepend_to_file(marker):
         message_file.write(''.join(lines))
 
 if __name__ == '__main__':
+    #if len(sys.argv) > 2 and sys.argv[2] in ["message"]:
+    if len(sys.argv) > 2:
+        print repr(sys.argv)
+    if len(sys.argv) > 2 and sys.argv[2] in ["squash", "merge", "commit"]:
+        sys.exit(1)
     prepend_to_file(get_marker_from_user())
